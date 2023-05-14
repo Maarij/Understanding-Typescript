@@ -1,6 +1,9 @@
-function combine(i1: number | string,
-                 i2: number | string,
-                 resultConversion: 'as-number' | 'as-text') {
+type Combinable = number | string;
+type ConversionDescription = 'as-number' | 'as-text'
+
+function combine(i1: Combinable,
+                 i2: Combinable,
+                 resultConversion: ConversionDescription) {
     let result;
     if (typeof i1 === 'number' && typeof i2 === 'number' || resultConversion === 'as-number') {
         result = +i1 + +i2;
