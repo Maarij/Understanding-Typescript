@@ -1,7 +1,9 @@
-function combine(i1: number | string, i2: number | string) {
+function combine(i1: number | string,
+                 i2: number | string,
+                 resultConversion: 'as-number' | 'as-text') {
     let result;
-    if (typeof i1 === 'number' && typeof i2 === 'number') {
-        result = i1 + i2;
+    if (typeof i1 === 'number' && typeof i2 === 'number' || resultConversion === 'as-number') {
+        result = +i1 + +i2;
     } else {
         result = i1.toString() + i2.toString();
     }
@@ -9,8 +11,11 @@ function combine(i1: number | string, i2: number | string) {
     return result;
 }
 
-const combinedAges = combine(30, 26);
+const combinedAges = combine(30, 26, 'as-number');
 console.log(combinedAges);
 
-const combinedNames = combine('Max', 'Anna');
+const combinedAgesString = combine('30', '26', 'as-number');
+console.log(combinedAges);
+
+const combinedNames = combine('Max', 'Anna', 'as-text');
 console.log(combinedNames);
