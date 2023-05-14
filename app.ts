@@ -1,8 +1,15 @@
-function add(n1: number, n2: number) {
-    console.log(typeof n1);
-
-    return n1 + n2;
+function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+    const result = n1 + n2;
+    if (showResult) {
+        console.log(phrase + result);
+    } else {
+        return result;
+    }
 }
 
-const result = add(5, 2.8);
-console.log(result);
+const n1 = 5;
+const n2 = 2.8;
+const printResult = true;
+const resultPhrase = 'Result is: ';
+
+add(n1, n2, printResult, resultPhrase);
